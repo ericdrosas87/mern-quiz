@@ -11,9 +11,13 @@ import {
   IonNote,
   IonPage,
   IonToolbar,
-  useIonViewWillEnter
+  useIonViewWillEnter,
+  IonRadio,
+  IonList,
+  IonRadioGroup,
+  IonListHeader
 } from '@ionic/react';
-import { personCircle } from 'ionicons/icons';
+import { newspaperOutline } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
 import './ViewMessage.css';
 
@@ -33,7 +37,7 @@ const ViewMessage: React.FC<ViewMessageProps> = ({ match }) => {
       <IonHeader translucent>
         <IonToolbar>
           <IonButtons>
-            <IonBackButton text="Inbox" defaultHref="/home"></IonBackButton>
+            <IonBackButton text="Quiz Topics" defaultHref="/home"></IonBackButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -42,23 +46,46 @@ const ViewMessage: React.FC<ViewMessageProps> = ({ match }) => {
         {message ? (
           <>
             <IonItem>
-              <IonIcon icon={personCircle} color="primary"></IonIcon>
+              <IonIcon icon={newspaperOutline} color="primary"></IonIcon>
               <IonLabel className="ion-text-wrap">
                 <h2>
-                  {message.fromName}
+                  {message.subject}
                   <span className="date">
                     <IonNote>{message.date}</IonNote>
                   </span>
                 </h2>
-                <h3>To: <IonNote>Me</IonNote></h3>
               </IonLabel>
             </IonItem>
 
             <div className="ion-padding">
-              <h1>{message.subject}</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              
+              {message.questions.map(m => {
+                return (
+                <React.Fragment>
+                  <IonList>
+                    <IonRadioGroup>
+                      <IonListHeader>{m.question}</IonListHeader>
+                    </IonRadioGroup>
+                    <IonItem>
+                      <IonLabel>{m.option1}</IonLabel>
+                      <IonRadio slot="start" value={m.option1}></IonRadio>
+                    </IonItem>
+                    <IonItem>
+                      <IonLabel>{m.option2}</IonLabel>
+                      <IonRadio slot="start" value={m.option2}></IonRadio>
+                    </IonItem>
+                    <IonItem>
+                      <IonLabel>{m.option3}</IonLabel>
+                      <IonRadio slot="start" value={m.option3}></IonRadio>
+                    </IonItem>
+                    <IonItem>
+                      <IonLabel>{m.option4}</IonLabel>
+                      <IonRadio slot="start" value={m.option4}></IonRadio>
+                    </IonItem>
+                  </IonList>
+                </React.Fragment>
+                )}
+              )}
             </div>
           </>
         ) : <div>Message not found</div>}
