@@ -1,15 +1,15 @@
-export interface Message {
-  fromName: string;
-  subject: string;
+export interface Questions {
+  unit: string;
+  topic: string;
   date: string;
   id: number;
   questions: any[];
 }
 
-const messages: Message[] = [
+const questions: Questions[] = [
   {
-    fromName: 'Unit 1',
-    subject: 'HTML & CSS Basics',
+    unit: 'Unit 1',
+    topic: 'HTML & CSS Basics',
     date: 'May 4th, 2020',
     questions: [{
       question: "What does HTML stand for?",
@@ -29,15 +29,15 @@ const messages: Message[] = [
     id: 0
   },
   {
-    fromName: 'Unit 2',
-    subject: 'CSS & Bootstrap',
+    unit: 'Unit 2',
+    topic: 'CSS & Bootstrap',
     date: 'May 11th, 2020',
     questions: [],
     id: 1
   },
   {
-    fromName: 'Unit 3',
-    subject: 'Intro to Javascript',
+    unit: 'Unit 3',
+    topic: 'Intro to Javascript',
     date: 'May 18th, 2020',
     questions: [],
     id: 2
@@ -45,6 +45,6 @@ const messages: Message[] = [
   }
 ];
 
-export const getMessages = () => messages;
+export const getQuestions = () => questions;
 
-export const getMessage = (id: number) => messages.find(m => m.id === id);
+export const getQuestion = (id: number) => questions.find(m => m.id === id);

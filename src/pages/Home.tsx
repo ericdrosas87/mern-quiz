@@ -1,6 +1,6 @@
-import MessageListItem from '../components/MessageListItem';
+import QuestionListItem from '../components/QuestionListItem';
 import React, { useState } from 'react';
-import { Message, getMessages } from '../data/messages';
+import { Questions, getQuestions } from '../data/questions';
 import {
   IonContent,
   IonHeader,
@@ -9,7 +9,7 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonTitle,
-  IonToolbar,
+  IonToolbar, 
   useIonViewWillEnter,
   IonIcon
 } from '@ionic/react';
@@ -18,11 +18,11 @@ import './Home.css';
 
 const Home: React.FC = () => {
 
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [questions, setQuestion] = useState<Questions[]>([]);
 
   useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
+    const questions = getQuestions();
+    setQuestion(questions);
   });
 
   const refresh = (e: CustomEvent) => {
@@ -46,13 +46,13 @@ const Home: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-              Inbox
+              Quiz Topics
             </IonTitle>
           </IonToolbar>
         </IonHeader>
 
         <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
+          {questions.map(m => <QuestionListItem key={m.id} questions={m} />)}
         </IonList>
       </IonContent>
     </IonPage>
