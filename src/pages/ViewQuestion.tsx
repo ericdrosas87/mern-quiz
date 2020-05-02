@@ -4,6 +4,8 @@ import {
   IonBackButton,
   IonButtons,
   IonContent,
+  IonSlides,
+  IonSlide,
   IonHeader,
   IonIcon,
   IonItem,
@@ -15,7 +17,8 @@ import {
   IonRadio,
   IonList,
   IonRadioGroup,
-  IonListHeader
+  IonListHeader,
+  IonToast
 } from '@ionic/react';
 import { newspaperOutline } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
@@ -23,14 +26,37 @@ import './ViewQuestion.css';
 
 interface ViewQuestionsProps extends RouteComponentProps<{ id: string; }> { }
 
+const slideOpts = {
+  initialSlide: 0,
+  speed: 400
+};
+
 const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
 
   const [questions, setQuestions] = useState<Questions>();
+  const [showCorrect, setShowCorrect] = useState(false);
+  const [showIncorrect, setShowIncorrect] = useState(false);
 
   useIonViewWillEnter(() => {
     const q = getQuestion(parseInt(match.params.id, 10));
     setQuestions(q);
   });
+
+  function shuffle(a:any) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function checkAnswer(o:any) {
+    if(o.correctAnswer) {
+      setShowCorrect(true);
+    } else {
+      setShowIncorrect(true);
+    }
+  }
 
   return (
     <IonPage id="view-message-page">
@@ -56,43 +82,48 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
                 </h2>
               </IonLabel>
             </IonItem>
-
-            <div className="ion-padding"></div>
               
-            
-              {questions.questions.map(m => {
+            <IonSlides pager={true} options={slideOpts}>
+              {shuffle(questions.questions).map((m:any, i:number) => {
                 return (
-                <React.Fragment>
-                  <IonList>
-                    <IonRadioGroup>
-                      <IonListHeader>
-                        <IonLabel>{m.question}</IonLabel>
-                      </IonListHeader>
-                      <IonItem>
-                        <IonLabel>{m.option1}</IonLabel>
-                        <IonRadio slot="start" value={m.option1}></IonRadio>
-                      </IonItem>
-                      <IonItem>
-                        <IonLabel>{m.option2}</IonLabel>
-                        <IonRadio slot="start" value={m.option2}></IonRadio>
-                      </IonItem>
-                      <IonItem>
-                        <IonLabel>{m.option3}</IonLabel>
-                        <IonRadio slot="start" value={m.option3}></IonRadio>
-                      </IonItem>
-                      <IonItem>
-                        <IonLabel>{m.option4}</IonLabel>
-                        <IonRadio slot="start" value={m.option4}></IonRadio>
-                      </IonItem>
-                    </IonRadioGroup>
-                    </IonList>
-                    <div className="ion-padding"></div>
-                </React.Fragment>
+                  <IonSlide key={i}>
+                      <IonList class="padding-left padding-right">
+                      <IonRadioGroup>
+                        <IonListHeader>
+                          <IonLabel>{m.question}</IonLabel>
+                        </IonListHeader>
+
+                        {shuffle(m.options).map((o:any, i2:number) => {
+                          return (
+                            <IonItem key={i2}>
+                              <IonLabel>{o.text}</IonLabel>
+                              <IonRadio value={o.text} onClick={() => checkAnswer(o)}></IonRadio>
+                            </IonItem>
+                          )}
+                        )}
+                      </IonRadioGroup>
+                      </IonList>
+                    </IonSlide>
                 
                 )}
               )}
-              
-            
+              </IonSlides>
+              <IonToast
+                isOpen={showCorrect}
+                onDidDismiss={() => setShowCorrect(false)}
+                message="Correct!"
+                duration={2000}
+                animated={true}
+                color="success"
+              />
+              <IonToast
+                isOpen={showIncorrect}
+                onDidDismiss={() => setShowIncorrect(false)}
+                message="Sorry, that is incorrect, please try again!"
+                duration={2000}
+                animated={true}
+                color="warning"
+              />
           </>
         ) : <div>Message not found</div>}
       </IonContent>
