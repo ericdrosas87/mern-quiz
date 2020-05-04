@@ -26,7 +26,7 @@ import './theme/variables.css';
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
+    <IonReactRouter basename="/mern-quiz">
       <IonRouterOutlet>
         <Route path="/home" component={Home} exact={true} />
         <Route path="/message/:id" component={ViewQuestion} exact={true} />

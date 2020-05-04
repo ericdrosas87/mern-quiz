@@ -1,7 +1,7 @@
 {
   "name": "mern-quiz",
   "version": "0.0.1",
-  "private": true,
+  "homepage": "https://ericdrosas87.github.io/mern-quiz",
   "dependencies": {
     "@capacitor/core": "2.0.1",
     "@ionic/react": "^5.0.7",
@@ -28,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,7 +48,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.0.1"
+    "@capacitor/cli": "2.0.1",
+    "gh-pages": "^2.2.0"
   },
   "description": "An Ionic project"
 }
