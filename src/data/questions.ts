@@ -29,7 +29,9 @@ const questions: Questions[] = [
           text: "Hyper-text markup language",
           correctAnswer: true
         }
-      ]},
+      ],
+      answerExplanation: "The other options are fictitious terms."
+      },
       {
         question: "HTML is what type of computer language?",
         options: [
@@ -49,7 +51,8 @@ const questions: Questions[] = [
             text: "Markup language",
             correctAnswer: true
           }
-        ]
+        ],
+        answerExplanation: "If it helps, think of the HTML document(web page) as a sheet of paper and HTML is a black sharpie. You can draw things on the paper with the sharpie and perhaps provide some simple styling, but most styling will be applied via CSS - a styling language."
       },
       {
         question: "HTML is mostly responsible for providing what?",
@@ -70,7 +73,8 @@ const questions: Questions[] = [
             text: "Nothing of value",
             correctAnswer: false
           }
-        ]
+        ],
+        answerExplanation: "There is some gray area here, but to keep things simple just know that HTML provides what appears on the screen, CSS provides the look, and Javascript provides the how it functions."
       },
       {
         question: "A single piece of HTML content is surrounded by what special characters?",
@@ -91,7 +95,8 @@ const questions: Questions[] = [
             text: "Curly braces: {div}{/div}",
             correctAnswer: false
           }
-        ]
+        ],
+        answerExplanation: "Left-pointed carrot on the left, right pointed carrot on the right of the tag name."
       },
       {
         question: "Most HTML tags are terminated with what special character?",
@@ -112,7 +117,8 @@ const questions: Questions[] = [
             text: "Semi-colon: <div><;div>",
             correctAnswer: false
           }
-        ]
+        ],
+        answerExplanation: "The terminating backslash denotes the closing tag and goes before the tag name within the carrots."
       },
       {
         question: "HTML tags that do not require a closing tag are called...",
@@ -133,7 +139,8 @@ const questions: Questions[] = [
             text: "Self-closing tags",
             correctAnswer: false
           }
-        ]
+        ],
+        answerExplanation: "Often a backslash will still appear, but at the end of the tag right before the right-pointed carrot."
       },
       {
         question: "Why can we write void tags without a closing tag?",
@@ -154,7 +161,8 @@ const questions: Questions[] = [
             text: "There is no such thing as a \"void tag\"",
             correctAnswer: false
           }
-        ]
+        ],
+        answerExplanation: "Examples of void tags include img, link, input, meta, etc. and there is never a separate closing tag for these void tags."
       }
     ],
     id: 0
@@ -184,6 +192,21 @@ const questions: Questions[] = [
   },
 ];
 
+function shuffle(a:any) {
+  for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export const getQuestions = () => questions;
 
-export const getQuestion = (id: number) => questions.find(m => m.id === id);
+export const getQuestion = (id: number) => {
+  let q:any = questions.find(m => m.id === id);
+  q.questions = shuffle(q.questions);
+  q.questions.map((o:any, i:number, arr:any) => {
+    arr[i].options = shuffle(arr[i].options);
+  });
+  return q;
+};

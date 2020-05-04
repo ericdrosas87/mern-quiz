@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Questions, getQuestion } from '../data/questions';
 import {
   IonBackButton,
@@ -31,6 +31,9 @@ const slideOpts = {
   speed: 400
 };
 
+let slides:any;
+let slideIndex:number = 0;
+
 const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
 
   const [questions, setQuestions] = useState<Questions>();
@@ -42,21 +45,14 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
     setQuestions(q);
   });
 
-  useContext(() => {
+  useEffect(() => {
+    slides = document.getElementById("slides");
+  });
 
-  })
-
-  function shuffle(a:any) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-
-  const checkAnswer = useCallback((o:any) => {
+  const checkAnswer = useCallback((o:any, i:number) => {
     if(o.correctAnswer) {
       setShowCorrect(() => true);
+      slideIndex = i;
     } else {
       setShowIncorrect(() => true);
     }
@@ -64,6 +60,7 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
 
   const resetCorrect = useCallback(() => {
     setShowCorrect(() => false);
+    slides.slideNext(500);
   }, []);
 
   const resetIncorrect = useCallback(() => {
@@ -95,7 +92,7 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
               </IonLabel>
             </IonItem>
               
-            <IonSlides pager={true} options={slideOpts} style={{width:"100%"}}>
+            <IonSlides pager={true} options={slideOpts} style={{width:"100%"}} id="slides">
               {questions.questions.map((m:any, i:number) => {
                 return (
                   <IonSlide key={i}>
@@ -109,7 +106,7 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
                           return (
                             <IonItem key={i2} text-wrap lines="full">
                               <IonLabel text-wrap className="ion-text-wrap">{o.text}</IonLabel>
-                              <IonRadio value={o.text} onClick={() => checkAnswer(o)}></IonRadio>
+                              <IonRadio value={o.text} onClick={() => checkAnswer(o, i)}></IonRadio>
                             </IonItem>
                           )}
                         )}
@@ -123,8 +120,8 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
               <IonToast
                 isOpen={showCorrect}
                 onDidDismiss={() => resetCorrect()}
-                message="Correct!"
-                duration={2000}
+                message={"Correct! " + questions.questions[slideIndex].answerExplanation}
+                duration={6000}
                 animated={true}
                 color="success"
               />
@@ -132,7 +129,7 @@ const ViewQuestion: React.FC<ViewQuestionsProps> = ({ match }) => {
                 isOpen={showIncorrect}
                 onDidDismiss={() => resetIncorrect()}
                 message="Sorry, that is incorrect, please try again!"
-                duration={2000}
+                duration={6000}
                 animated={true}
                 color="warning"
               />
