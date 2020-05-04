@@ -13,8 +13,8 @@
     "static/js/5.15779c1a.chunk.js": "/mern-quiz/static/js/5.15779c1a.chunk.js",
     "static/js/5.15779c1a.chunk.js.map": "/mern-quiz/static/js/5.15779c1a.chunk.js.map",
     "main.css": "/mern-quiz/static/css/main.9e003356.chunk.css",
-    "main.js": "/mern-quiz/static/js/main.445d00f3.chunk.js",
-    "main.js.map": "/mern-quiz/static/js/main.445d00f3.chunk.js.map",
+    "main.js": "/mern-quiz/static/js/main.914775f9.chunk.js",
+    "main.js.map": "/mern-quiz/static/js/main.914775f9.chunk.js.map",
     "runtime-main.js": "/mern-quiz/static/js/runtime-main.61b4595d.js",
     "runtime-main.js.map": "/mern-quiz/static/js/runtime-main.61b4595d.js.map",
     "stencil-ion-avatar_3-ios-entry-js.js": "/mern-quiz/static/js/stencil-ion-avatar_3-ios-entry-js.7b18c692.chunk.js",
@@ -187,7 +187,7 @@
     "static/js/91.d4c74da5.chunk.js": "/mern-quiz/static/js/91.d4c74da5.chunk.js",
     "static/js/91.d4c74da5.chunk.js.map": "/mern-quiz/static/js/91.d4c74da5.chunk.js.map",
     "index.html": "/mern-quiz/index.html",
-    "precache-manifest.a2ab9e11ecf95ad9a9f24ec35b342568.js": "/mern-quiz/precache-manifest.a2ab9e11ecf95ad9a9f24ec35b342568.js",
+    "precache-manifest.9759d2e896424aef1485dfd9cd9986f5.js": "/mern-quiz/precache-manifest.9759d2e896424aef1485dfd9cd9986f5.js",
     "service-worker.js": "/mern-quiz/service-worker.js",
     "static/css/49.a72581b3.chunk.css.map": "/mern-quiz/static/css/49.a72581b3.chunk.css.map",
     "static/css/main.9e003356.chunk.css.map": "/mern-quiz/static/css/main.9e003356.chunk.css.map",
@@ -201,6 +201,6 @@
     "static/css/49.a72581b3.chunk.css",
     "static/js/49.62bdd448.chunk.js",
     "static/css/main.9e003356.chunk.css",
-    "static/js/main.445d00f3.chunk.js"
+    "static/js/main.914775f9.chunk.js"
   ]
 }

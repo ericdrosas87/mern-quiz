@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e86e6fa2853d227a9d7fd8c976cd643f",
+    "revision": "19b8df6dc149e24d84f687f13da0f3cc",
     "url": "/mern-quiz/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mern-quiz/static/css/49.a72581b3.chunk.css"
   },
   {
-    "revision": "d23c0ee0df9d33bb6e34",
+    "revision": "2baf3b3aa5892281d6f6",
     "url": "/mern-quiz/static/css/main.9e003356.chunk.css"
   },
   {
@@ -224,8 +224,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mern-quiz/static/js/91.d4c74da5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d23c0ee0df9d33bb6e34",
-    "url": "/mern-quiz/static/js/main.445d00f3.chunk.js"
+    "revision": "2baf3b3aa5892281d6f6",
+    "url": "/mern-quiz/static/js/main.914775f9.chunk.js"
   },
   {
     "revision": "8ead250f2668f91f33d1",
