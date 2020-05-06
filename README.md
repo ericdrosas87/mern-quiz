@@ -8,4 +8,4 @@ https://ionicframework.com/docs/cli
 
 Then run "ionic serve" to start the dev server. Best viewed in the mobile emulator of the Chrome developer tools.
 
-For local development, remove the basename attribute to <IonReactRouter> in App.tsx
+For local development, remove the basename attribute to the IonReactRouter tag in App.tsx

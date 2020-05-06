@@ -109,7 +109,7 @@ let Unit1HtmlTagsQuestions = {
                 correctAnswer: false
               }
             ],
-            answerExplanation: "In the most basic terms, an <html> tag is placed at the beginning of your HTML file and at the end. The browser reads these tags and can use them to determine how to structure your website."
+            answerExplanation: "In the most basic terms, an html tag is placed at the beginning of your HTML file and at the end. The browser reads these tags and can use them to determine how to structure your website."
           },
           {
             question: "<script></script>",
@@ -153,7 +153,7 @@ let Unit1HtmlTagsQuestions = {
                 correctAnswer: false
               }
             ],
-            answerExplanation: "The <link> tag is a void tag (requires no closing tag) that allows you to import an external CSS stylsheet into a webpage."
+            answerExplanation: "The link tag is a void tag (requires no closing tag) that allows you to import an external CSS stylsheet into a webpage."
           }
         ],
         id: 2
