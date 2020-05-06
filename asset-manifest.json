@@ -12,9 +12,9 @@
     "static/js/4.091aea16.chunk.js.map": "/mern-quiz/static/js/4.091aea16.chunk.js.map",
     "static/js/5.15779c1a.chunk.js": "/mern-quiz/static/js/5.15779c1a.chunk.js",
     "static/js/5.15779c1a.chunk.js.map": "/mern-quiz/static/js/5.15779c1a.chunk.js.map",
-    "main.css": "/mern-quiz/static/css/main.9e003356.chunk.css",
-    "main.js": "/mern-quiz/static/js/main.6513b36e.chunk.js",
-    "main.js.map": "/mern-quiz/static/js/main.6513b36e.chunk.js.map",
+    "main.css": "/mern-quiz/static/css/main.367ef944.chunk.css",
+    "main.js": "/mern-quiz/static/js/main.bb0233d8.chunk.js",
+    "main.js.map": "/mern-quiz/static/js/main.bb0233d8.chunk.js.map",
     "runtime-main.js": "/mern-quiz/static/js/runtime-main.61b4595d.js",
     "runtime-main.js.map": "/mern-quiz/static/js/runtime-main.61b4595d.js.map",
     "stencil-ion-avatar_3-ios-entry-js.js": "/mern-quiz/static/js/stencil-ion-avatar_3-ios-entry-js.7b18c692.chunk.js",
@@ -187,10 +187,10 @@
     "static/js/91.d4c74da5.chunk.js": "/mern-quiz/static/js/91.d4c74da5.chunk.js",
     "static/js/91.d4c74da5.chunk.js.map": "/mern-quiz/static/js/91.d4c74da5.chunk.js.map",
     "index.html": "/mern-quiz/index.html",
-    "precache-manifest.9a09842d4f7196091b7016843eee2349.js": "/mern-quiz/precache-manifest.9a09842d4f7196091b7016843eee2349.js",
+    "precache-manifest.fa8f030ce0826536ea286905cef8bf35.js": "/mern-quiz/precache-manifest.fa8f030ce0826536ea286905cef8bf35.js",
     "service-worker.js": "/mern-quiz/service-worker.js",
     "static/css/49.a72581b3.chunk.css.map": "/mern-quiz/static/css/49.a72581b3.chunk.css.map",
-    "static/css/main.9e003356.chunk.css.map": "/mern-quiz/static/css/main.9e003356.chunk.css.map",
+    "static/css/main.367ef944.chunk.css.map": "/mern-quiz/static/css/main.367ef944.chunk.css.map",
     "static/js/49.62bdd448.chunk.js.LICENSE.txt": "/mern-quiz/static/js/49.62bdd448.chunk.js.LICENSE.txt",
     "static/js/50.2d101e95.chunk.js.LICENSE.txt": "/mern-quiz/static/js/50.2d101e95.chunk.js.LICENSE.txt",
     "static/js/88.e9229ceb.chunk.js.LICENSE.txt": "/mern-quiz/static/js/88.e9229ceb.chunk.js.LICENSE.txt",
@@ -200,7 +200,7 @@
     "static/js/runtime-main.61b4595d.js",
     "static/css/49.a72581b3.chunk.css",
     "static/js/49.62bdd448.chunk.js",
-    "static/css/main.9e003356.chunk.css",
-    "static/js/main.6513b36e.chunk.js"
+    "static/css/main.367ef944.chunk.css",
+    "static/js/main.bb0233d8.chunk.js"
   ]
 }
